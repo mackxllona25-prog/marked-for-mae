@@ -31,6 +31,7 @@ body{
 
     background-size:cover;
     background-position:center;
+    animation:heroZoom 18s ease-in-out infinite alternate;
     background-repeat:no-repeat;
 
     display:flex;
@@ -129,5 +130,58 @@ width:90%;
 max-width:320px;
 
 }
+
+}
+/* ===========================
+   HERO CINEMATIC ANIMATION
+=========================== */
+
+@keyframes heroZoom{
+
+0%{
+background-size:100%;
+}
+
+100%{
+background-size:112%;
+}
+
+}
+
+.opening-content{
+
+animation:fadeUp 1.6s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+#enterBtn{
+
+box-shadow:0 10px 35px rgba(183,110,121,.45);
+
+}
+
+#enterBtn:hover{
+
+transform:translateY(-4px) scale(1.05);
 
 }
