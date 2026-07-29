@@ -60,23 +60,29 @@ setInterval(countdown,1000);
 
 const enterBtn = document.getElementById("enterBtn");
 const opening = document.getElementById("opening-screen");
+const leftGate = document.querySelector(".left-gate");
+const rightGate = document.querySelector(".right-gate");
+const welcomeCard = document.querySelector(".welcome-card");
 
-if(enterBtn && opening){
+if (enterBtn) {
 
-    enterBtn.addEventListener("click",()=>{
+    enterBtn.addEventListener("click", () => {
 
-        opening.style.opacity="0";
-        opening.style.transition="1s";
+        welcomeCard.classList.add("fade");
 
-        setTimeout(()=>{
+        leftGate.classList.add("open");
 
-            opening.style.display="none";
+        rightGate.classList.add("open");
 
-        },1000);
+        setTimeout(() => {
+
+            opening.classList.add("hide");
+
+        }, 2100);
 
     });
 
-}
+} 
 
 // =====================================
 // SMOOTH SCROLL
