@@ -588,3 +588,45 @@ font-size:34px;
         opacity:1;
     }
 }
+
+/* ==========================================
+   GATE OPEN ANIMATION
+========================================== */
+
+.left-gate.open{
+    animation:openLeft 2s ease forwards;
+}
+
+.right-gate.open{
+    animation:openRight 2s ease forwards;
+}
+
+.welcome-card.fade{
+    opacity:0;
+    transform:translateY(-20px);
+    transition:all .8s ease;
+}
+
+#opening-screen.hide{
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 1s ease;
+}
+
+@keyframes openLeft{
+    from{
+        transform:perspective(1200px) rotateY(0deg);
+    }
+    to{
+        transform:perspective(1200px) rotateY(-100deg);
+    }
+}
+
+@keyframes openRight{
+    from{
+        transform:perspective(1200px) rotateY(0deg);
+    }
+    to{
+        transform:perspective(1200px) rotateY(100deg);
+    }
+}
