@@ -447,3 +447,144 @@ font-size:34px;
 }
 
 }
+/* ==========================================
+   CINEMATIC GARDEN GATE
+========================================== */
+
+#opening-screen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#000;
+}
+
+.gate-background{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+        url("images/hero.jpeg") center/cover no-repeat;
+    filter:blur(8px);
+    transform:scale(1.1);
+}
+
+.light-behind{
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(255,245,220,.95) 0%,
+        rgba(255,235,180,.45) 40%,
+        transparent 75%);
+    animation:glow 3s ease-in-out infinite;
+}
+
+.gate{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+    background:rgba(35,35,35,.92);
+    overflow:hidden;
+}
+
+.left-gate{
+    left:0;
+    border-right:2px solid rgba(212,175,55,.45);
+    transform-origin:left center;
+}
+
+.right-gate{
+    right:0;
+    border-left:2px solid rgba(212,175,55,.45);
+    transform-origin:right center;
+}
+
+.gate-frame{
+    position:absolute;
+    inset:20px;
+    border:4px solid rgba(212,175,55,.7);
+    border-radius:12px;
+}
+
+.gate-frame::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:2px solid rgba(255,255,255,.15);
+}
+
+.welcome-card{
+    position:relative;
+    z-index:5;
+    text-align:center;
+    color:#fff;
+    max-width:520px;
+    padding:30px;
+}
+
+.monogram{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    color:#f0d9a7;
+    margin-bottom:20px;
+    letter-spacing:6px;
+}
+
+.welcome-small{
+    letter-spacing:6px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.welcome-card h1{
+    font-family:'Great Vibes',cursive;
+    font-size:72px;
+    font-weight:400;
+}
+
+.floating-petals span{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,220,220,.8);
+    animation:petals 10s linear infinite;
+}
+
+.floating-petals span:nth-child(1){left:10%;animation-delay:0s;}
+.floating-petals span:nth-child(2){left:28%;animation-delay:2s;}
+.floating-petals span:nth-child(3){left:45%;animation-delay:4s;}
+.floating-petals span:nth-child(4){left:62%;animation-delay:1s;}
+.floating-petals span:nth-child(5){left:78%;animation-delay:3s;}
+.floating-petals span:nth-child(6){left:90%;animation-delay:5s;}
+
+@keyframes petals{
+    from{
+        transform:translateY(-100px) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes glow{
+    0%,100%{
+        transform:scale(1);
+        opacity:.8;
+    }
+    50%{
+        transform:scale(1.15);
+        opacity:1;
+    }
+}
