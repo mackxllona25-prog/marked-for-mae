@@ -1,105 +1,82 @@
-// =====================================
-// MARKed for MAE V2
-// =====================================
+// ===============================
+// MARKed for MAE - script.js v1.0
+// ===============================
 
-// Wedding Date
-const weddingDate = new Date("April 27, 2027 15:00:00").getTime();
+const opening = document.getElementById("opening");
+const website = document.getElementById("website");
+const enter = document.getElementById("enter");
 
-const timer = document.getElementById("timer");
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("music-btn");
 
-function countdown(){
+// Hide website at start
+website.style.display = "none";
 
-    if(!timer) return;
+// Open Invitation
+enter.addEventListener("click", function () {
 
-    const now = new Date().getTime();
+    opening.style.opacity = "0";
+    opening.style.transition = "0.8s";
 
-    const distance = weddingDate - now;
+    setTimeout(function () {
 
-    if(distance <= 0){
+        opening.style.display = "none";
+        website.style.display = "block";
 
-        timer.innerHTML = "<h2>💍 Today is our Wedding Day!</h2>";
+    }, 800);
 
-        return;
+    // Play music
+    music.play().catch(function(){});
+
+    musicBtn.style.display = "block";
+
+});
+
+// Music Button
+musicBtn.addEventListener("click", function(){
+
+    if(music.paused){
+
+        music.play();
+        musicBtn.innerHTML = "♫";
+
+    }else{
+
+        music.pause();
+        musicBtn.innerHTML = "▶";
 
     }
 
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000*60)) / 1000);
+});
 
-    timer.innerHTML = `
-        <div class="time-box">
-            <h3>${days}</h3>
-            <p>Days</p>
-        </div>
+// ===============================
+// Countdown
+// ===============================
 
-        <div class="time-box">
-            <h3>${hours}</h3>
-            <p>Hours</p>
-        </div>
+const weddingDate = new Date("April 27, 2027 15:00:00").getTime();
 
-        <div class="time-box">
-            <h3>${minutes}</h3>
-            <p>Minutes</p>
-        </div>
+function countdown(){
 
-        <div class="time-box">
-            <h3>${seconds}</h3>
-            <p>Seconds</p>
-        </div>
-    `;
+    const now = new Date().getTime();
+
+    const gap = weddingDate - now;
+
+    const day = 1000 * 60 * 60 * 24;
+    const hour = 1000 * 60 * 60;
+    const minute = 1000 * 60;
+
+    const days = Math.floor(gap / day);
+    const hours = Math.floor((gap % day) / hour);
+    const minutes = Math.floor((gap % hour) / minute);
+    const seconds = Math.floor((gap % minute) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
 }
 
 countdown();
+
 setInterval(countdown,1000);
-
-// =====================================
-// ENTER THE GARDEN
-// =====================================
-
-const enterBtn = document.getElementById("enterBtn");
-const opening = document.getElementById("opening-screen");
-const leftGate = document.querySelector(".left-gate");
-const rightGate = document.querySelector(".right-gate");
-const welcomeCard = document.querySelector(".welcome-card");
-
-if (enterBtn) {
-
-    enterBtn.addEventListener("click", () => {
-
-        welcomeCard.classList.add("fade");
-
-        leftGate.classList.add("open");
-
-        rightGate.classList.add("open");
-
-        setTimeout(() => {
-
-            opening.classList.add("hide");
-
-        }, 2100);
-
-    });
-
-} 
-
-// =====================================
-// SMOOTH SCROLL
-// =====================================
-
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-
-    link.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-
-            behavior:"smooth"
-
-        });
-
-    });
-
-});
