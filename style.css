@@ -1,267 +1,215 @@
-/* ==========================================
-   MARKed for MAE
-   Version 0.1
-   ========================================== */
+/* MARKed for MAE - style.css v1.0 */
 
-/* Google Fonts are loaded in index.html */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+  --sage: #5f7f66;
+  --gold: #c9a86a;
+  --ivory: #faf8f2;
+  --text: #2f3a33;
 }
 
-html{
-    scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Poppins, sans-serif;
+  background: var(--ivory);
+  color: var(--text);
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:#f9f8f4;
-    color:#2f3d2f;
-    overflow-x:hidden;
+#opening {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7f4ed, #efe8db);
 }
 
-/* ==========================================
-   COLORS
-========================================== */
-
-:root{
-    --sage:#7A9E7E;
-    --forest:#46634C;
-    --gold:#D6B370;
-    --ivory:#F9F8F4;
-    --white:#ffffff;
-    --shadow:0 10px 30px rgba(0,0,0,.15);
+.bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background: radial-gradient(
+    circle at top,
+    #ffffff 0,
+    #f7f4ed 45%,
+    #efe8db 100%
+  );
 }
 
-/* ==========================================
-   OPENING SCREEN
-========================================== */
-
-#opening-screen{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    z-index:9999;
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* Background */
-
-.background{
-    position:absolute;
-    inset:0;
-    background:url("assets/images/mayon.jpg") center center/cover no-repeat;
-    transform:scale(1.05);
+.invitation-card {
+  position: relative;
+  z-index: 2;
+  width: min(92%, 430px);
+  background: #fffdf9;
+  border-radius: 24px;
+  padding: 42px 30px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #eee6d8;
 }
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.45)
-    );
+.seal {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: "Cormorant Garamond", serif;
 }
 
-/* ==========================================
-   WELCOME CARD
-========================================== */
-
-.welcome-card{
-    position:relative;
-    z-index:5;
-
-    width:90%;
-    max-width:460px;
-
-    padding:40px 30px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:30px;
-
-    color:white;
-
-    box-shadow:var(--shadow);
+.seal h2,
+.seal span {
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.monogram{
-    font-family:"Cormorant Garamond",serif;
-    font-size:58px;
-    letter-spacing:3px;
+.small {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6c6c6c;
+  margin-bottom: 18px;
 }
 
-.monogram span{
-    color:var(--gold);
+.invitation-card h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 54px;
+  color: #2e4738;
+  line-height: 1.1;
 }
 
-.family{
-    margin:20px 0;
-    font-size:15px;
-    letter-spacing:2px;
-    text-transform:uppercase;
+.amp {
+  color: var(--gold);
+  font-size: 30px;
+  margin: 6px 0;
 }
 
-.welcome-card h1{
-    font-family:"Great Vibes",cursive;
-    font-size:58px;
-    font-weight:400;
+.date {
+  margin: 22px 0 28px;
+  letter-spacing: 3px;
+  color: #666;
 }
 
-.welcome-card h2{
-    margin:10px 0;
-    color:var(--gold);
-    font-size:32px;
+#enter {
+  border: none;
+  background: var(--sage);
+  color: #fff;
+  padding: 15px 34px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.line{
-    width:80px;
-    height:2px;
-    background:var(--gold);
-    margin:25px auto;
+#website {
+  display: none;
 }
 
-.welcome-card h3{
-    letter-spacing:4px;
-    font-weight:400;
+.hero {
+  min-height: 100vh;
+  position: relative;
 }
 
-/* ==========================================
-   BUTTON
-========================================== */
-
-#openBtn{
-
-    margin-top:35px;
-
-    padding:15px 35px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:var(--gold);
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
-
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background: url("assets/images/hero.jpg") center/cover no-repeat;
 }
 
-#openBtn:hover{
-
-    transform:translateY(-4px);
-
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
 }
 
-/* ==========================================
-   WEBSITE
-========================================== */
-
-#website{
-
-    display:none;
-
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
-/* ==========================================
-   HERO
-========================================== */
-
-.hero{
-
-    position:relative;
-
-    height:100vh;
-
-    overflow:hidden;
-
+.hero-content h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 60px;
 }
 
-.hero img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
+.hero-content h2 {
+  color: var(--gold);
+  margin: 8px 0;
 }
 
-.hero-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:rgba(0,0,0,.35);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:white;
-
-    text-align:center;
-
-    padding:20px;
-
+.countdown {
+  padding: 70px 20px;
+  text-align: center;
 }
 
-.hero-overlay p{
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-    margin-bottom:15px;
-
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 700px;
+  margin: 30px auto 0;
 }
 
-.hero-overlay h1{
-
-    font-family:"Great Vibes",cursive;
-
-    font-size:70px;
-
-    font-weight:400;
-
+.timer div {
+  background: #fff;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.hero-overlay h2{
-
-    color:var(--gold);
-
-    margin:10px 0;
-
+.timer h3 {
+  color: var(--sage);
+  font-size: 34px;
 }
 
-.hero-overlay h3{
+#music-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: var(--sage);
+  color: #fff;
+  font-size: 22px;
+  display: none;
+}
 
-    margin-top:20px;
-
-    letter-spacing:4px;
-
+@media (max-width: 600px) {
+  .invitation-card h1 {
+    font-size: 46px;
+  }
+  .hero-content h1 {
+    font-size: 48px;
+  }
+  .timer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
